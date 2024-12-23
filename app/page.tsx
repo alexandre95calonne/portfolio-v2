@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navItems } from "@/data";
 
 import Hero from "@/components/Hero";
@@ -14,30 +14,41 @@ import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleHashChange = () => {
       const hash = window.location.hash;
-      if (hash && mainRef.current) {
+      if (!hash || !mainRef.current) return;
+
+      requestAnimationFrame(() => {
         const element = document.querySelector(hash);
         if (element) {
-          const yOffset = -80; // Ajustez cette valeur selon votre navbar
+          const yOffset = -80;
           const y =
             element.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
         }
-      }
+      });
     };
 
-    // Gérer le hash initial
     if (window.location.hash) {
-      setTimeout(handleHashChange, 100);
+      requestAnimationFrame(handleHashChange);
     }
 
-    // Écouter les changements de hash
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div ref={mainRef} className="relative bg-black-100">
