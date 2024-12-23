@@ -6,6 +6,20 @@ const nextConfig = {
     disableServerWebpackPlugin: true,
     disableClientWebpackPlugin: true,
   },
+  experimental: {
+    // Vos configurations expérimentales...
+  },
 };
 
-export default nextConfig;
+const config = withSentryConfig(
+  nextConfig,
+  {
+    // Configurations Sentry
+    silent: true, // Recommandé pour les nouveaux projets
+  },
+  {
+    // Options additionnelles
+  }
+);
+
+export default config;
