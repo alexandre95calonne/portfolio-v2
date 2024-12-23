@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { navItems } from "@/data";
+import dynamic from "next/dynamic";
 
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";

@@ -6,8 +6,10 @@ const nextConfig = {
     disableServerWebpackPlugin: true,
     disableClientWebpackPlugin: true,
   },
-  experimental: {
-    // Vos configurations expérimentales...
+  // Ajout de la configuration pour le rendu côté client
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
   },
 };
 
