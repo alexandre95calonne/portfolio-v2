@@ -11,7 +11,11 @@ import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
+
+const FloatingNav = dynamic(
+  () => import("@/components/ui/FloatingNavbar").then((mod) => mod.FloatingNav),
+  { ssr: false }
+);
 
 const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);

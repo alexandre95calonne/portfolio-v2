@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -24,6 +24,11 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -46,6 +51,9 @@ export const FloatingNav = ({
     link: string
   ) => {
     e.preventDefault();
+
+    if (typeof document === "undefined") return;
+
     const element = document.querySelector(link);
     if (element) {
       const yOffset = -80;
@@ -55,6 +63,8 @@ export const FloatingNav = ({
       window.history.pushState({}, "", link);
     }
   };
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence mode="wait">
