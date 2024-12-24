@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
 import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 import Image from "next/image";
+import Lottie from "react-lottie";
 
 // Dynamic import with no SSR
 const BackgroundGradientAnimationNoSSR = dynamic(
@@ -19,13 +19,24 @@ const BackgroundGradientAnimationNoSSR = dynamic(
   }
 );
 
-export const BentoGrid = ({
+export function BentoGrid({
   className,
   children,
 }: {
   className?: string;
   children?: React.ReactNode;
-}) => {
+}) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Rendu côté serveur sécurisé
+  if (!isMounted) {
+    return null; // ou un placeholder/skeleton
+  }
+
   return (
     <div
       className={cn(
@@ -36,7 +47,7 @@ export const BentoGrid = ({
       {children}
     </div>
   );
-};
+}
 
 export const BentoGridItem = ({
   className,

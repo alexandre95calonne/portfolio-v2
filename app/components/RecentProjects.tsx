@@ -2,6 +2,7 @@
 
 import { FaLocationArrow } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
@@ -30,15 +31,19 @@ const RecentProjects = () => {
                     className="relative w-full h-full overflow-hidden lg:rounded-3xl rounded-2xl"
                     style={{ backgroundColor: "#13162D" }}
                   >
-                    <img
+                    <Image
                       src="/bg.png"
                       alt="bgimg"
+                      width={500}
+                      height={300}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <img
+                  <Image
                     src={item.img}
                     alt="cover"
+                    width={500}
+                    height={300}
                     className="z-10 absolute inset-0 w-full h-full object-cover rounded-2xl lg:rounded-3xl"
                   />
                 </div>
