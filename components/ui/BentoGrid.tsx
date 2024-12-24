@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
+import Image from "next/image";
 
 // Dynamic import with no SSR
 const BackgroundGradientAnimationNoSSR = dynamic(
@@ -102,9 +103,12 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <img
+            <Image
               src={img}
               alt={img}
+              width={500}
+              height={300}
+              quality={95}
               className={cn(imgClassName, "object-cover object-center")}
             />
           )}
@@ -115,9 +119,12 @@ export const BentoGridItem = ({
           }`}
         >
           {spareImg && (
-            <img
+            <Image
               src={spareImg}
               alt={spareImg}
+              width={500}
+              height={300}
+              quality={95}
               className="object-cover object-center w-full h-full"
             />
           )}
