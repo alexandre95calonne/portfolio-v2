@@ -3,6 +3,23 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
+interface BackgroundGradientAnimationProps {
+  gradientBackgroundStart?: string;
+  gradientBackgroundEnd?: string;
+  firstColor?: string;
+  secondColor?: string;
+  thirdColor?: string;
+  fourthColor?: string;
+  fifthColor?: string;
+  pointerColor?: string;
+  size?: string;
+  blendingValue?: string;
+  children?: React.ReactNode;
+  className?: string;
+  interactive?: boolean;
+  containerClassName?: string;
+}
+
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(108, 0, 162)",
   gradientBackgroundEnd = "rgb(0, 17, 82)",
@@ -18,48 +35,36 @@ export const BackgroundGradientAnimation = ({
   className,
   interactive = true,
   containerClassName,
-}: {
-  gradientBackgroundStart?: string;
-  gradientBackgroundEnd?: string;
-  firstColor?: string;
-  secondColor?: string;
-  thirdColor?: string;
-  fourthColor?: string;
-  fifthColor?: string;
-  pointerColor?: string;
-  size?: string;
-  blendingValue?: string;
-  children?: React.ReactNode;
-  className?: string;
-  interactive?: boolean;
-  containerClassName?: string;
-}) => {
+}: BackgroundGradientAnimationProps) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const [curX, setCurX] = useState(0);
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
+  const [isSafari, setIsSafari] = useState(false);
 
+  // Handle mounting and CSS variable setup
   useEffect(() => {
     setMounted(true);
 
-    if (typeof document === "undefined") return;
+    if (typeof window !== "undefined") {
+      const root = document.documentElement;
+      const setProperty = (property: string, value: string) => {
+        root.style.setProperty(property, value);
+      };
 
-    const setProperty = (property: string, value: string) => {
-      document.body.style.setProperty(property, value);
-    };
-
-    setProperty("--gradient-background-start", gradientBackgroundStart);
-    setProperty("--gradient-background-end", gradientBackgroundEnd);
-    setProperty("--first-color", firstColor);
-    setProperty("--second-color", secondColor);
-    setProperty("--third-color", thirdColor);
-    setProperty("--fourth-color", fourthColor);
-    setProperty("--fifth-color", fifthColor);
-    setProperty("--pointer-color", pointerColor);
-    setProperty("--size", size);
-    setProperty("--blending-value", blendingValue);
+      setProperty("--gradient-background-start", gradientBackgroundStart);
+      setProperty("--gradient-background-end", gradientBackgroundEnd);
+      setProperty("--first-color", firstColor);
+      setProperty("--second-color", secondColor);
+      setProperty("--third-color", thirdColor);
+      setProperty("--fourth-color", fourthColor);
+      setProperty("--fifth-color", fifthColor);
+      setProperty("--pointer-color", pointerColor);
+      setProperty("--size", size);
+      setProperty("--blending-value", blendingValue);
+    }
   }, [
     gradientBackgroundStart,
     gradientBackgroundEnd,
@@ -73,38 +78,42 @@ export const BackgroundGradientAnimation = ({
     blendingValue,
   ]);
 
+  // Handle movement animation
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || !interactive) return;
 
-    function move() {
+    const moveInterval = setInterval(() => {
       if (!interactiveRef.current) return;
 
-      setCurX(curX + (tgX - curX) / 20);
-      setCurY(curY + (tgY - curY) / 20);
+      setCurX((prev) => prev + (tgX - prev) / 20);
+      setCurY((prev) => prev + (tgY - prev) / 20);
+
       interactiveRef.current.style.transform = `translate(${Math.round(
         curX
       )}px, ${Math.round(curY)}px)`;
-    }
+    }, 1000 / 60);
 
-    move();
-  }, [tgX, tgY, curX, curY, mounted]);
+    return () => clearInterval(moveInterval);
+  }, [mounted, interactive, tgX, tgY, curX, curY]);
+
+  // Detect Safari browser
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+    }
+  }, []);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!interactiveRef.current) return;
+    if (!interactiveRef.current || !interactive) return;
 
     const rect = interactiveRef.current.getBoundingClientRect();
     setTgX(event.clientX - rect.left);
     setTgY(event.clientY - rect.top);
   };
 
-  const [isSafari, setIsSafari] = useState(false);
-
-  useEffect(() => {
-    if (typeof navigator === "undefined") return;
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
-  }, []);
-
-  if (!mounted) return null;
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div
@@ -146,7 +155,7 @@ export const BackgroundGradientAnimation = ({
             `animate-first`,
             `opacity-100`
           )}
-        ></div>
+        />
         <div
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
@@ -155,7 +164,7 @@ export const BackgroundGradientAnimation = ({
             `animate-second`,
             `opacity-100`
           )}
-        ></div>
+        />
         <div
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`,
@@ -164,7 +173,7 @@ export const BackgroundGradientAnimation = ({
             `animate-third`,
             `opacity-100`
           )}
-        ></div>
+        />
         <div
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat]`,
@@ -173,7 +182,7 @@ export const BackgroundGradientAnimation = ({
             `animate-fourth`,
             `opacity-70`
           )}
-        ></div>
+        />
         <div
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat]`,
@@ -182,8 +191,7 @@ export const BackgroundGradientAnimation = ({
             `animate-fifth`,
             `opacity-100`
           )}
-        ></div>
-
+        />
         {interactive && (
           <div
             ref={interactiveRef}
@@ -193,7 +201,7 @@ export const BackgroundGradientAnimation = ({
               `[mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2`,
               `opacity-70`
             )}
-          ></div>
+          />
         )}
       </div>
     </div>
