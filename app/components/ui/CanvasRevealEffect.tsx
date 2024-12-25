@@ -118,6 +118,10 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
     };
   }, [colors, opacities, totalSize, dotSize]);
 
+  const memoizedUniforms = useMemo(() => {
+    return uniforms;
+  }, [uniforms]);
+
   return (
     <Shader
       source={`
@@ -169,7 +173,7 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
       fragColor = vec4(color, opacity);
       fragColor.rgb *= fragColor.a;
         }`}
-      uniforms={uniforms}
+      uniforms={memoizedUniforms}
       maxFps={60}
     />
   );

@@ -145,7 +145,7 @@ export const testimonials = [
     quote:
       "The website Alexandre built for Jeff Coaching Taekwondo is a perfect representation of my brand. It’s elegant, modern, and has brought in more clients than I could have imagined.",
     name: "Jeff",
-    img: "logo-jeff.webp",
+    img: "/logo-jeff.webp",
     title: "Founder, Jeff Coaching Taekwondo",
   },
   {
