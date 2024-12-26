@@ -2,9 +2,9 @@
 
 import type { Metadata } from "next";
 
-const title = "Alexandre Calonne - Développeur Full Stack";
+const title = "Alexandre Calonne - Full Stack Developer";
 const description =
-  "Alexandre Calonne est un développeur full stack passionné par la création d'applications web innovantes et performantes.";
+  "Full Stack Developer specialized in React, Next.js, and Node.js. Building modern web applications with a focus on performance and user experience.";
 
 export const metadata: Metadata = {
   title: {
@@ -13,21 +13,21 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    "Développeur",
-    "Full Stack",
+    "Developer",
+    "Shopify",
+    "Ecommerce",
+    "Liquid",
+    "Landing Page",
     "JavaScript",
     "TypeScript",
-    "React",
+    "React.js",
     "Next.js",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "PostgreSQL",
-    "Docker",
-    "Kubernetes",
-    "Cloud",
-    "DevOps",
+    "Nuxt.js",
+    "Vue.js",
+    "Tailwind",
     "Alexandre Calonne",
+    "Web Development",
+    "Frontend",
   ],
   authors: [
     {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       url: "https://alexandre-calonne.fr/",
     },
   ],
-  creator: "Alexandre Calonne - Développeur Full Stack",
+  creator: "Alexandre Calonne - Full Stack Developer",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -52,15 +52,15 @@ export const metadata: Metadata = {
     siteName: "Alexandre Calonne",
     images: [
       {
-        url: "https://alexandre-calonne.fr/api/og",
+        url: "/meta/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Alexandre Calonne - Développeur Full Stack",
-        type: "image/png",
-        secureUrl: "https://alexandre-calonne.fr/api/og",
+        alt: "Alexandre Calonne - Full Stack Developer",
+        type: "image/webp",
+        secureUrl: "https://alexandre-calonne.fr/meta/og-image.webp",
       },
     ],
-    locale: "fr_FR",
+    locale: "en_US",
     type: "profile",
     firstName: "Alexandre",
     lastName: "Calonne",
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://alexandre-calonne.fr",
     languages: {
-      "fr-FR": "https://alexandre-calonne.fr",
+      "en-US": "https://alexandre-calonne.fr",
     },
   },
   manifest: "/site.webmanifest",
