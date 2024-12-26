@@ -52,9 +52,9 @@ const Footer = () => {
               <Image
                 src={info.img}
                 alt="icons"
-                width={20}
-                height={20}
-                className="w-full h-full object-cover"
+                width={16}
+                height={16}
+                className="w-6 h-6"
               />
             </a>
           ))}
