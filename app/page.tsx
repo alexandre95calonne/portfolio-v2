@@ -60,14 +60,12 @@ const Home = () => {
       <FloatingNav navItems={navItems} />
       <div className="flex flex-col">
         <Hero />
-        <div className="max-w-7xl mx-auto w-full px-5 sm:px-10">
-          <Grid />
-          <RecentProjects />
-          <Clients />
-          <Experience />
-          <Approach />
-          <Footer />
-        </div>
+        <Grid />
+        <RecentProjects />
+        <Clients />
+        <Experience />
+        <Approach />
+        <Footer />
       </div>
     </div>
   );

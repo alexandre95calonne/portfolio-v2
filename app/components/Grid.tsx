@@ -18,7 +18,7 @@ const BentoGridItem = dynamic(
 
 const Grid = () => {
   return (
-    <section id="about">
+    <section id="about" className=" px-5 sm:px-10">
       <BentoGrid className="w-full py-20">
         {gridItems.map((item, i) => (
           <BentoGridItem
