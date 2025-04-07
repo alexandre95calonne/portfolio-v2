@@ -116,6 +116,15 @@ export const projects = [
   },
   {
     id: 6,
+    title: "Modern Website for Espace Cadet",
+    des: "Developed a sleek and functional website for a coworking space located in Paris, highlighting its amenities and creating an inviting online presence.",
+    img: "/espace-cadet.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/motion.png"],
+    link: "https://www.espacecadet.com/",
+    label: "espacecadet.com",
+  },
+  {
+    id: 7,
     title: "Professional Website for Mobilrep53",
     des: "Designed a modern and intuitive website for a specialized mobile phone repair service, showcasing their expertise and making it easy for customers to find repair solutions.",
     img: "/mobilrep.png",
@@ -124,7 +133,7 @@ export const projects = [
     label: "mobilrep53.com",
   },
   {
-    id: 7,
+    id: 8,
     title: "Professional Website for Jeff Coaching Taekwondo",
     des: "Revamped the online identity of Jeff Coaching Taekwondo in Argenteuil with a polished, modern, and impactful site.",
     img: "/jeff.png",
@@ -133,7 +142,7 @@ export const projects = [
     label: "jeff-coaching-taekwondo.fr",
   },
   {
-    id: 8,
+    id: 9,
     title: "Supportive Platform for Totem Association",
     des: "Designed a welcoming website for an organization aiding elderly and disabled individuals, focusing on accessibility and community impact.",
     img: "/totem.png",
