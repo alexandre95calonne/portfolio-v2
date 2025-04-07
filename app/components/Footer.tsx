@@ -1,10 +1,13 @@
 import { FaLocationArrow } from "react-icons/fa6";
 import Image from "next/image";
+import { Icon } from "@iconify/react";
 
 import { socialMedia } from "@/data";
 import MagicButton from "./MagicButton";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="w-full pt-20 pb-10 relative  px-5 sm:px-10" id="contact">
       {/* background grid */}
@@ -37,7 +40,7 @@ const Footer = () => {
       </div>
       <div className="flex mt-16 md:flex-row flex-col-reverse gap-6 justify-between items-center">
         <p className="md:text-base text-sm md:font-normal font-light">
-          Copyright © 2024 Alexandre Calonne
+          Copyright © {currentYear} Alexandre Calonne
         </p>
 
         <div className="flex items-center md:gap-3 gap-6">
@@ -49,12 +52,16 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
             >
-              <Image
-                src={info.img}
-                alt="icons"
-                width={16}
-                height={16}
-                className="w-6 h-6"
+              <Icon
+                icon={info.icon}
+                className={
+                  info.icon === "simple-icons:malt"
+                    ? "w-7 h-7 text-white"
+                    : "w-5 h-5 text-white"
+                }
+                style={
+                  info.icon === "simple-icons:malt" ? { fontSize: "26px" } : {}
+                }
               />
             </a>
           ))}
