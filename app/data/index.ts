@@ -125,6 +125,15 @@ export const projects = [
   },
   {
     id: 7,
+    title: "Formation Website for Innoveo Training",
+    des: "Designed a modern and professional website for a specialized corporate training company, showcasing their diverse course offerings and making it easy for clients to find and register for professional development programs.",
+    img: "/innoveo.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
+    link: "https://innoveo.vercel.app/",
+    label: "innoveo.vercel.app",
+  },
+  {
+    id: 8,
     title: "Professional Website for Mobilrep53",
     des: "Designed a modern and intuitive website for a specialized mobile phone repair service, showcasing their expertise and making it easy for customers to find repair solutions.",
     img: "/mobilrep.png",
@@ -133,7 +142,7 @@ export const projects = [
     label: "mobilrep53.com",
   },
   {
-    id: 8,
+    id: 9,
     title: "Professional Website for Jeff Coaching Taekwondo",
     des: "Revamped the online identity of Jeff Coaching Taekwondo in Argenteuil with a polished, modern, and impactful site.",
     img: "/jeff.png",
@@ -141,15 +150,16 @@ export const projects = [
     link: "https://www.jeff-coaching-taekwondo.fr/",
     label: "jeff-coaching-taekwondo.fr",
   },
-  {
-    id: 9,
-    title: "Supportive Platform for Totem Association",
-    des: "Designed a welcoming website for an organization aiding elderly and disabled individuals, focusing on accessibility and community impact.",
-    img: "/totem.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
-    link: "https://totem33.vercel.app/",
-    label: "totem33.vercel.app",
-  },
+  // Pour le moment laisse commenter mais soon faire page slug projects
+  // {
+  //   id: 10,
+  //   title: "Supportive Platform for Totem Association",
+  //   des: "Designed a welcoming website for an organization aiding elderly and disabled individuals, focusing on accessibility and community impact.",
+  //   img: "/totem.png",
+  //   iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
+  //   link: "https://totem33.vercel.app/",
+  //   label: "totem33.vercel.app",
+  // },
 ];
 
 export const testimonials = [
