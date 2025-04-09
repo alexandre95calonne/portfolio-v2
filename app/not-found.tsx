@@ -46,7 +46,7 @@ export default function NotFound() {
               Oops! This page seems to have vanished into cyberspace.
             </p>
             <p className="text-muted-foreground/80 text-sm md:text-base">
-              Don't worry, even the best developers get lost sometimes.
+              Don&apos;t worry, even the best developers get lost sometimes.
             </p>
           </div>
 
