@@ -3,11 +3,19 @@
 import { FaLocationArrow } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
+import MagicButton from "./MagicButton";
 
 const RecentProjects = () => {
+  const [visibleProjects, setVisibleProjects] = useState(9);
+
+  const loadMore = () => {
+    setVisibleProjects((prev) => prev + 9);
+  };
+
   return (
     <div className="py-20 px-5 sm:px-10" id="projects">
       <h1 className="heading">
@@ -15,7 +23,7 @@ const RecentProjects = () => {
         <span className="text-purple">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
-        {projects.map((item) => (
+        {projects.slice(0, visibleProjects).map((item) => (
           <div
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
             key={item.id}
@@ -89,6 +97,16 @@ const RecentProjects = () => {
           </div>
         ))}
       </div>
+      {visibleProjects < projects.length && (
+        <div className="flex justify-center mt-10">
+          <MagicButton
+            title="Load More"
+            icon={<FaLocationArrow />}
+            position="right"
+            handleClick={loadMore}
+          />
+        </div>
+      )}
     </div>
   );
 };
