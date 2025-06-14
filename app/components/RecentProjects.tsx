@@ -10,10 +10,10 @@ import { PinContainer } from "./ui/Pin";
 import MagicButton from "./MagicButton";
 
 const RecentProjects = () => {
-  const [visibleProjects, setVisibleProjects] = useState(9);
+  const [visibleProjects, setVisibleProjects] = useState(6);
 
   const loadMore = () => {
-    setVisibleProjects((prev) => prev + 9);
+    setVisibleProjects((prev) => prev + 6);
   };
 
   return (
