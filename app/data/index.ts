@@ -71,6 +71,15 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
+    title: "Hitako Technology",
+    des: "Multi-page website for an AI training company specialized in generative AI education for businesses in the Var region. Features comprehensive course offerings and professional training programs.",
+    img: "/hitako.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/motion.png"],
+    link: "https://www.hitako.com/",
+    label: "hitako.com",
+  },
+  {
+    id: 2,
     title: "Virtuosa",
     des: "Website built for my own web agency. We position ourselves as offering premium web services at accessible prices.",
     img: "/virtuosa.png",
@@ -79,7 +88,7 @@ export const projects = [
     label: "virtuosa.fr",
   },
   {
-    id: 2,
+    id: 3,
     title: "Bruno Portails & Clôtures",
     des: "Professional showcase website for a craftsman specialized in gates and fences installation in Seine-Maritime. Clean, sharp and trustworthy design.",
     img: "/bruno-portails-clotures.png",
@@ -88,7 +97,7 @@ export const projects = [
     label: "artisan-clotures-portails.com",
   },
   {
-    id: 3,
+    id: 4,
     title: "Sharmila Osteopathe website",
     des: "Minimalist showcase website for a certified osteopath. Built to reflect softness, clarity, and trust through refined design and fluid UX.",
     img: "/sharmila.png",
@@ -97,7 +106,7 @@ export const projects = [
     label: "sharmila-osteopathe.com",
   },
   {
-    id: 4,
+    id: 5,
     title: "Modern Website for Bab Le French Kebab",
     des: "Created an elegant website for a Parisian restaurant located on Boulevard Haussmann, showcasing their unique French-inspired kebab offerings.",
     img: "/bab.png",
@@ -106,7 +115,7 @@ export const projects = [
     label: "bab-lefrenchkebab.fr",
   },
   {
-    id: 5,
+    id: 6,
     title: "Elegant Website for Les Chambres d'Anne",
     des: "Developed a sophisticated website for an upscale guest house (chambre d'hôte) in Seine Maritime, highlighting its premium accommodations and charming location.",
     img: "/chambres-anne.png",
@@ -115,7 +124,7 @@ export const projects = [
     label: "les-chambres-d-anne.fr",
   },
   {
-    id: 6,
+    id: 7,
     title: "Modern Luxury Website for Alexandra Grey Salons",
     des: "Developed a sophisticated and minimalist website for a chain of 4 high-end hair salons in Paris.",
     img: "/alexandra.png",
@@ -124,7 +133,7 @@ export const projects = [
     label: "alexandra-grey.fr",
   },
   {
-    id: 7,
+    id: 8,
     title: "Elegant Website Redesign for Mudo Club Taekwondo",
     des: "Transformed the online presence of Mudo Club Taekwondo in Argenteuil with a sleek, professional, and user-friendly website.",
     img: "/mudo.png",
@@ -133,7 +142,7 @@ export const projects = [
     label: "mudoclubargenteuil.fr",
   },
   {
-    id: 8,
+    id: 9,
     title: "Premium Website for Tena Transport",
     des: "Created a sophisticated website for a high-end taxi service, featuring online reservation functionality and elegant presentation of their premium transportation offerings.",
     img: "/tena.png",
@@ -142,7 +151,7 @@ export const projects = [
     label: "tenatransport.com",
   },
   {
-    id: 9,
+    id: 10,
     title: "Modern Website for Espace Cadet",
     des: "Developed a sleek and functional website for a coworking space located in Paris, highlighting its amenities and creating an inviting online presence.",
     img: "/espace-cadet.png",
@@ -151,7 +160,7 @@ export const projects = [
     label: "espacecadet.com",
   },
   {
-    id: 10,
+    id: 11,
     title: "Formation Website for Innoveo Training",
     des: "Designed a modern and professional website for a specialized corporate training company, showcasing their diverse course offerings and making it easy for clients to find and register for professional development programs.",
     img: "/innoveo.png",
@@ -160,7 +169,7 @@ export const projects = [
     label: "innoveo.vercel.app",
   },
   {
-    id: 11,
+    id: 12,
     title: "Professional Website for Mobilrep53",
     des: "Designed a modern and intuitive website for a specialized mobile phone repair service, showcasing their expertise and making it easy for customers to find repair solutions.",
     img: "/mobilrep.png",
@@ -169,7 +178,7 @@ export const projects = [
     label: "mobilrep53.com",
   },
   {
-    id: 12,
+    id: 13,
     title: "Professional Website for Jeff Coaching Taekwondo",
     des: "Revamped the online identity of Jeff Coaching Taekwondo in Argenteuil with a polished, modern, and impactful site.",
     img: "/jeff.png",
@@ -178,7 +187,7 @@ export const projects = [
     label: "jeff-coaching-taekwondo.fr",
   },
   {
-    id: 13,
+    id: 14,
     title: "Supportive Platform for Totem Association",
     des: "Designed a welcoming website for an organization aiding elderly and disabled individuals, focusing on accessibility and community impact.",
     img: "/totem.png",
